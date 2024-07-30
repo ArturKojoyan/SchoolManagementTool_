@@ -1,0 +1,42 @@
+type Pupil {
+  id: ID
+  name: String
+  grade: Int
+  subjects: [Subject]
+}
+
+type Subject {
+  id: ID
+  name: String
+  grade: Int
+  teacher: Teacher
+  teacherId: ID
+  pupils: [Pupil]
+}
+
+type Teacher {
+  id: ID
+  name: String
+  surname: String
+  subjects: [Subject]
+}
+
+input CreatePupilInput {
+  name: String!
+  grade: Int!
+}
+
+input UpdatePupilInput {
+  id: ID!
+  name: String!
+}
+
+type Query {
+  getPupils: [Pupil]
+}
+
+type Mutation {
+  createPupil(input: CreatePupilInput): Pupil
+  updatePupil(input: UpdatePupilInput): Pupil
+  deletePupil(id: ID): Pupil
+}

@@ -1,0 +1,30 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --env-file=.env -r dotenv/config index.js",
+    "dev": "nodemon -r dotenv/config index.js",
+    "migration:create": "npx prisma migrate dev"
+  },
+  "author": "Arthur K",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/server": "^4.10.5",
+    "@prisma/client": "^5.17.0",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "fs": "^0.0.1-security",
+    "graphql": "^16.9.0",
+    "jsonwebtoken": "^9.0.2",
+    "path": "^0.12.7",
+    "prisma": "^5.17.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "nodemon": "^3.1.4"
+  }
+}

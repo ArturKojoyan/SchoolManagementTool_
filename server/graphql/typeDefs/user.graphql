@@ -1,0 +1,30 @@
+enum Role {
+  ADMIN
+  USER
+}
+
+type User {
+  id: ID
+  username: String
+  role: Role
+}
+
+input UserInput {
+  username: String!
+  password: String!
+  role: Role
+}
+
+type Token {
+  token: String
+}
+
+type Query {
+  getAllUsers: [User]
+  getUser(username: String): User
+}
+
+type Mutation {
+  register(input: UserInput): Token
+  login(input: UserInput): Token
+}

@@ -1,0 +1,36 @@
+type Subject {
+  id: ID
+  name: String
+  grade: Int
+  teacher: Teacher
+  teacherId: ID
+}
+
+type Teacher {
+  id: ID
+  name: String
+  surname: String
+  subjects: [Subject]
+}
+
+input CreateSubjectInput {
+  name: String!
+  grade: Int!
+  teacherId: ID!
+}
+
+input UpdateSubjectInput {
+  id: ID!
+  name: String
+  teacherId: ID
+}
+
+type Query {
+  getSubjects: [Subject]
+}
+
+type Mutation {
+  createSubject(input: CreateSubjectInput): Subject
+  updateSubject(input: UpdateSubjectInput): Subject
+  deleteSubject(id: ID): Subject
+}
